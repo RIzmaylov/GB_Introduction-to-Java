@@ -2,8 +2,14 @@
  * Комментарии
  */
 
+import java.util.Scanner;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.*;
+
 public class Program {
-    static public void main(String[] args) {
+    static public void main(String[] args) throws Exception {
         System.out.println("Hello World!");       // комментарии 2
         String s = null;                            // без присваивания значения не скомпилируется
 
@@ -104,6 +110,77 @@ public class Program {
          System.out.println(bb);
         //  bb = Byte.parseByte("1234");            // Здесь будет ошибка, переполнение Byte
         //  System.out.println(bb);
+
+
+        System.out.println();
+        // Получание данных из терминала
+        // Импортировать import java.util.Scanner;
+        Scanner iScanner = new Scanner(System.in);
+        System.out.printf("name: ");
+        String name = iScanner.nextLine();
+        System.out.printf("Привет, %s!", name);
+        System.out.println();
+
+        System.out.printf("int a: ");
+        int x = iScanner.nextInt();
+        System.out.printf("double a: ");
+        double y = iScanner.nextDouble();
+        System.out.printf("%d +%f = %f", x , y, x + y);
+        System.out.println();
+
+        // Проверка получаемого значения:
+        System.out.printf("int a: ");
+        boolean flag = iScanner.hasNextInt();
+        System.out.println(flag);
+        int i2 = iScanner.nextInt();
+        System.out.println(i2);
+        iScanner.close();
+
+        // Форматированный вывод
+        int af = 1, bf = 2;
+        int cf = af + bf;
+        String res = af + " + " + bf + " = " + cf;
+        String ress = String.format("%d + %d = %d \n", af, bf, cf);
+        System.out.println(res);
+        System.out.println(ress);
+        System.out.println();
+
+        // Работа с файлами
+        // Импортируем:
+        // import java.io.FileWriter;
+        // import java.io.IOException;
+        // Запись
+        try (FileWriter fw = new FileWriter("Lecture_01\\file.txt", false)) {       // false/true - нужно ли дописывать. Если нет, то файл будет перезаписан
+            fw.write("line 1");
+            fw.append('\n');
+            fw.append('2');
+            fw.append('\n');
+            fw.write("line 3");
+            fw.flush();                 // принудительная запись
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+        // Чтение посимвольно
+        // добавить в main - throws Exception - это вместо блока try - catch
+        FileReader fr = new FileReader("Lecture_01\\file.txt");
+        int c;
+        while ((c = fr.read()) != -1) {
+            char ch1 = (char) c;
+            if (ch1 == '\n') {
+                System.out.print(ch1);
+            } else {
+                System.out.print(ch1);
+            }
+        }
+        fr.close();
+        System.out.println();
+        // Чтение построчно
+        BufferedReader br = new BufferedReader(new FileReader("Lecture_01\\file.txt"));
+        String str1;
+        while ((str1 = br.readLine() ) != null) {
+            System.out.printf("== %s ==\n", str1);
+        }
+        br.close();
     }
 
     static String getType(Object o) {
