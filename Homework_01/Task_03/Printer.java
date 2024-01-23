@@ -38,6 +38,7 @@ class Calculator {
             default:
                 System.out.println("Некорректный оператор: " + op);
                 break;
+                // throw new IllegalArgumentException("Некорректный оператор: " + op); // взято от перподавателя с семинара
         }
         return result;
 

@@ -1,0 +1,10 @@
+янв. 23, 2024 3:42:50 PM Seminar_02.Task_04 writeToFile
+INFO: Запись в файл была успешна!
+янв. 23, 2024 3:43:45 PM Seminar_02.Task_04 writeToFile
+INFO: Запись в файл была успешна!
+янв. 23, 2024 3:43:46 PM Seminar_02.Task_04 writeToFile
+INFO: Запись в файл была успешна!
+янв. 23, 2024 3:55:50 PM Seminar_02.Task_04 writeToFile
+INFO: Запись в файл была успешна!
+янв. 23, 2024 3:55:52 PM Seminar_02.Task_04 writeToFile
+INFO: Запись в файл была успешна!
