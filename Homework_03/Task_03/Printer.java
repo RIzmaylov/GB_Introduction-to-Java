@@ -34,6 +34,7 @@ class Answer {
           list.add(arr[i]);
           sum += arr[i];
       }
+      //List<Integer> list = new ArraysList<>(Arrays.asList(arr));
       list.sort(null);
       double average = (double) sum / list.size();
 

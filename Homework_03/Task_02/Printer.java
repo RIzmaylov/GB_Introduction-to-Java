@@ -33,6 +33,7 @@ class Answer {
         for (int i = 0; i < arr.length; i++) {
             list.add(arr[i]);
         }
+        //List<Integer> list = new ArrayList<>(Arrays.asList(arr));
        list.removeIf(o -> o % 2 == 0);
        System.out.println(list);
     }
