@@ -1,5 +1,8 @@
 package Seminar_05;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /*Задание №1
 Даны 2 строки, написать метод, который вернет true, если эти строки являются изоморфными
 и false, если нет. Строки изоморфны, если одну букву в первом слове можно заменить на
@@ -17,6 +20,31 @@ Output: true
 
 public class Task_01 {
     public static void main(String[] args) {
-        
+        System.out.println(isIsomorphic("add", "egg"));
+        System.out.println(isIsomorphic("note", "code"));
+        System.out.println(isIsomorphic("paper", "title"));
+        System.out.println(isIsomorphic("foo", "bar"));
+        System.out.println(isIsomorphic("bar", "foo"));
+    }
+
+    static boolean isIsomorphic(String s1, String s2) {
+        if (s1.length() != s2.length()) {
+            return false;
+        }
+        Map<Character, Character> map = new HashMap<>();
+
+        for (int i = 0; i < s1.length(); i++) {
+            if (map.containsKey(s1.charAt(i))) {
+                if (s2.charAt(i) != map.get(s1.charAt(i))) {
+                    return false;
+                }
+            } else {
+                if (map.containsValue(s2.charAt(i))) {
+                    return false;
+                }
+                map.put(s1.charAt(i), s2.charAt(i));
+            }
+        }
+        return true;
     }
 }
